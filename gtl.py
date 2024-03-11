@@ -212,6 +212,7 @@ def _ExpandVariable(var, specials, params, name, default=''):
     value = not value
 
   if escaper_name == 'text':
+    # cgi.escape ne-escapovalo single & double quotes
     meta_chars = {
       '"': '&quot;',
       '\'': '&#39;',
@@ -219,7 +220,7 @@ def _ExpandVariable(var, specials, params, name, default=''):
       '<': '&lt;',
       '>': '&gt;',
     }
-    
+
     escaped_var = ""
     for i in var:
       if i in meta_chars:
