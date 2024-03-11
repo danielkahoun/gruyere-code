@@ -757,6 +757,9 @@ class GruyereRequestHandler(BaseHTTPRequestHandler):
       return None
 
   def do_POST(self):  # part of BaseHTTPRequestHandler interface
+
+    # na tomto místě bych implementoval XSRF token validaci
+
     self.DoGetOrPost()
 
   def do_GET(self):  # part of BaseHTTPRequestHandler interface
