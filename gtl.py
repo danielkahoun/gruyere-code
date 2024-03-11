@@ -212,7 +212,22 @@ def _ExpandVariable(var, specials, params, name, default=''):
     value = not value
 
   if escaper_name == 'text':
-    value = cgi.escape(str(value))
+    meta_chars = {
+      '"': '&quot;',
+      '\'': '&#39;',
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+    }
+    
+    escaped_var = ""
+    for i in var:
+      if i in meta_chars:
+        escaped_var = escaped_var + meta_chars[i]
+      else:
+        escaped_var = escaped_var + i
+    
+    value = escaped_var  
   elif escaper_name == 'html':
     value = sanitize.SanitizeHtml(str(value))
   elif escaper_name == 'pprint':  # for debugging
