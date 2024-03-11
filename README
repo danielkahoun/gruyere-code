@@ -13,6 +13,7 @@
 
 ### CSRF
 
-- ochrana proti XSRF nebyla nikde řešena, tak jsem použil z dokumentace Gruyere ukázkovou implementaci (ta sice není nejbezpečnější, ale pro ukázku to stačí)
 - u všech formulářů jsem změnil metodu GET na POST
-- u deleteSnippet jsem přidal XSRF token validaci
+- ochrana proti XSRF nebyla nikde řešena, tak bych použil z dokumentace Gruyere ukázkovou implementaci (ta ale taky není nejbezpečnější - lepší by bylo držet si token v session)
+- u všech POST formulářů bych přidal hidden input pro token a následně bych ho v GruyereRequestHandleru (v metodě do_POST()) validoval
+- nepřijde mi zároveň vhodné handlovat get a post requesty stejnou metodou (DoGetOrPost())
