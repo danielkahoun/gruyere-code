@@ -11,7 +11,7 @@
 <h2>Gruyere: Manage the server</h2>
 
 <div class='content'>
-<form method='get' action='/{{_unique_id}}/editprofile.gtl'>
+<form method='post' action='/{{_unique_id}}/editprofile.gtl'>
 <p>Edit a user's profile:
 <input type='text' name='uid'>
     <input type='submit' value='Edit'>

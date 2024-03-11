@@ -17,7 +17,7 @@
 [[/if:_message]]
 
 <div class='content'>
-<form method='get' action='/{{_unique_id}}/login'>
+<form method='post' action='/{{_unique_id}}/login'>
 <table><tr><td>
     User name:
   </td><td>
